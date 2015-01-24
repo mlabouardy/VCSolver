@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include "sat.h"
+#include "vc.h"
+
+int main(){
+	int k,choix;
+	char c;
+	printf("\t\t\tVertex Cover Solver\n\n");
+	do{
+		printf("\t1-Tester k\n");
+		printf("\t2-Calculer la taille exacte de la couverture minimum\n\n");
+		printf("Choix=");
+		scanf("%d",&choix);
+		switch(choix){
+			case 1:
+				printf("Entrer k=");
+				scanf("%d",&k);
+				genSAT_Formule(k,0);
+				printf("resultat est stocke dans le fichier 'resultat.txt'\n");
+			   break;
+			case 2:
+				printf("Entrer k=");
+				scanf("%d",&k);
+			   min_k(k);
+				printf("resultat est stocke dans le fichier 'resultat.txt'\n");
+				break;
+			default:printf("Erreur !! 1/2 svp !!\n");	
+      }
+		getchar();
+		printf("\nVous voulez reessayer ? (o/n):");
+		scanf("%c",&c);
+	}while(c!='n');	
+}
